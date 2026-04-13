@@ -1,0 +1,93 @@
+body {
+  font-family: Arial;
+  width: 300px;
+  margin: 20px auto;
+  color: black
+  
+}
+ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  width: 78%;
+  gap: 20px;
+
+}
+
+li {
+  font-weight: bold;
+  width: 100%;
+  display: flex ;
+  justify-items: center;
+  place-items: center;
+  position: relative;
+  padding: 15px 2px;
+  border-bottom: 1px solid #333;
+}
+
+
+.header {
+    background-color: blue;
+    width: 100%;
+    border-top-left-radius: 19px;
+    border-top-right-radius: 19px;
+    display: grid;
+    place-items: center;
+}
+
+
+.container {
+  border: 2px solid black;
+  border-radius: 20px;
+  display: grid;
+  place-items: center;
+  gap: 24px;
+  height: auto;
+  
+}
+
+.inner-container {
+  display: flex;
+  gap: 4px;
+}
+
+#taskInput {
+  padding: 9px;
+  border: 1px solid black;
+  border-radius: 6px;
+  width: 90%;
+}
+
+#taskInput::placeholder {
+    font-size: 15px;
+}
+
+button {
+  padding: 6px;
+  padding-left: 10px;
+  padding-right: 10px;
+  width: auto;
+  border: 1px solid black;
+  border-radius: 6px;
+  background-color: white;
+  cursor: pointer;
+}
+
+button:hover {
+    background-color: skyblue;
+    transition: all 0.5s;
+}
+
+.deleteBtn {
+    position:absolute;
+    right: 0px;
+    
+}
+
+.anchor {
+    font-size: 100px;
+    
+}
+
+
