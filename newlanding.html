@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do Master - Clarity and Productivity</title>
+    <link rel="stylesheet" href="newlanding.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <h1>To-Do Master</h1>
+            <a href="index.html" class="cta">Try Now</a>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h2>Clarity, Finally.</h2>
+        <p>Gain calmness and clarity with the world's most beloved to-do list app.</p>
+        <div class="reviews">
+            <span>★★★★★ 374K+ reviews</span>
+        </div>
+        <a href="index.html" class="cta">Start for Free</a>
+        <div class="hero-image">
+            <!-- Placeholder for app screenshot -->
+            <div class="mock-app">
+                <div class="task">✓ Buy groceries</div>
+                <div class="task">○ Finish project</div>
+                <div class="task">○ Call mom</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="features">
+        <div class="feature">
+            <h3>Clear Your Mind</h3>
+            <p>Capture tasks at the speed of thought. Organize instantly with natural language.</p>
+        </div>
+        <div class="feature">
+            <h3>Focus on What's Important</h3>
+            <p>Stay organized and focused. Sort tasks into Today, Upcoming, or custom filters.</p>
+        </div>
+        <div class="feature">
+            <h3>Plan with Confidence</h3>
+            <p>Schedule due dates, visualize your week, and set recurring tasks with ease.</p>
+        </div>
+    </section>
+
+    <section class="stats">
+        <h3>A Task Manager You Can Trust</h3>
+        <div class="stat">
+            <strong>30+ million</strong><br>app downloads
+        </div>
+        <div class="stat">
+            <strong>2+ billion</strong><br>tasks completed
+        </div>
+        <div class="stat">
+            <strong>160+ countries</strong><br>worldwide
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 To-Do Master. Organize your life.</p>
+    </footer>
+
+    <script>
+        // Simple fade-in animation on scroll
+        const observerOptions = {
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe sections
+        document.querySelectorAll('section').forEach(section => {
+            section.style.opacity = '0';
+            section.style.transform = 'translateY(20px)';
+            section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(section);
+        });
+
+        // Smooth scroll for CTA buttons
+        document.querySelectorAll('.cta').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                // Since it's linking to index.html, no scroll needed
+            });
+        });
+    </script>
+</body>
+</html>

@@ -5,18 +5,39 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="java.css">
     <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+        .welcome {
+            text-align: center;
+        }
         .anchor:hover {
             opacity: 0.8;
             transform: scale(1.1);
             transition: all 0.3s ease;
             cursor: pointer;
         }
+        .anchor {
+            font-size: 50px;
+            text-decoration: none;
+            color: green;
+        }
     </style>
-    <title>Document</title>
+    <title>Landing Page</title>
 </head>
 <body>
-    <a class="anchor" href="./index.html">
-        ✔
-    </a>
+    <div class="welcome">
+        <h1>Welcome to Zikora's To-Do List</h1>
+        <p>Organize your tasks efficiently.</p>
+        <a class="anchor" href="./index.html">
+            Get Started ✔
+        </a>
+    </div>
 </body>
 </html>
