@@ -11,6 +11,11 @@ let tasks = JSON.parse(localStorage.getItem('tasks')) || [];
 let currentFilter = 'all';
 
 addBtn.addEventListener('click', addTask);
+taskInput.addEventListener('keydown', (event) => {
+  if (event.key === 'Enter') {
+    addTask();
+  }
+});
 filterAll.addEventListener('click', () => setFilter('all'));
 filterActive.addEventListener('click', () => setFilter('active'));
 filterCompleted.addEventListener('click', () => setFilter('completed'));
@@ -49,9 +54,50 @@ function renderTasks() {
     li.innerHTML = `
       <input class='checkbox' type="checkbox" ${task.completed ? 'checked' : ''}>
       <span class="task-text">${task.text}</span>
+      <button class='editBtn' title="Edit task">✎</button>
       <button class='deleteBtn'>×</button>
     `;
     taskList.appendChild(li);
+
+    const taskTextSpan = li.querySelector('.task-text');
+    const editBtn = li.querySelector('.editBtn');
+
+    function enableEdit() {
+      if (li.querySelector('.edit-input')) return;
+      const editInput = document.createElement('input');
+      editInput.type = 'text';
+      editInput.className = 'edit-input';
+      editInput.value = task.text;
+
+      function saveEdit() {
+        const newText = editInput.value.trim();
+        if (newText) {
+          task.text = newText;
+          saveTasks();
+        }
+        renderTasks();
+      }
+
+      function cancelEdit() {
+        renderTasks();
+      }
+
+      editInput.addEventListener('keydown', (event) => {
+        if (event.key === 'Enter') {
+          saveEdit();
+        } else if (event.key === 'Escape') {
+          cancelEdit();
+        }
+      });
+
+      editInput.addEventListener('blur', saveEdit);
+      li.replaceChild(editInput, taskTextSpan);
+      editInput.focus();
+      editInput.setSelectionRange(editInput.value.length, editInput.value.length);
+    }
+
+    editBtn.addEventListener('click', enableEdit);
+    taskTextSpan.addEventListener('dblclick', enableEdit);
 
     // Toggle completed
     li.querySelector('.checkbox').addEventListener('change', () => {
